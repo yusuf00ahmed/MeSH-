@@ -1,0 +1,175 @@
+FROM python:3.9-slim as base
+FROM base as builder
+RUN apt-get -qq update \
+    && apt-get install -y --no-install-recommends \
+        g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Enable unbuffered logging
+FROM base as final
+ENV PYTHONUNBUFFERED=1
+
+RUN apt-get -qq update \
+    && apt-get install -y --no-install-recommends \
+        wget
+
+WORKDIR /helloserver
+
+# Grab packages from builder
+COPY --from=builder /usr/local/lib/python3.9/ /usr/local/lib/python3.9/
+
+# Add the application
+COPY . .
+
+EXPOSE 8080
+ENTRYPOINT [ "python", "server.py" ]
+
+export PROJECT_ID="PROJECT_ID"
+export GCR_REPO="asm-ready"
+gcloud config set project $PROJECT_ID
+gcloud config set compute/zone us-central1-b
+docker build -t gcr.io/$PROJECT_ID/$GCR_REPO/helloserver:v0.0.1 
+AME
+gcr.io/PROJECT_ID/asm-ready/helloserver
+gcr.io/PROJECT_ID/asm-ready/loadgen
+
+gcloud container clusters create asm-ready \
+  --cluster-version latest \
+  --machine-type=n1-standard-4 \
+  --num-nodes 4
+  
+  NAME        LOCATION       MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION   NUM_NODES  STATUS
+asm-ready  us-central1-b  1.13.5-gke.10   203.0.113.1    n1-standard-2  1.13.5-gke.10  4          RUNNING
+
+NAME                                       STATUS   ROLES    AGE    VERSION
+gke-asm-ready-default-pool-dbeb23dc-1vg0   Ready    <none>   99s    v1.13.6-gke.13
+gke-asm-ready-default-pool-dbeb23dc-36z5   Ready    <none>   100s   v1.13.6-gke.13
+gke-asm-ready-default-pool-dbeb23dc-fj7s   Ready    <none>   99s    v1.13.6-gke.13
+gke-asm-ready-default-pool-dbeb23dc-wbjw   Ready    <none>   99s    v1.13.6-gke.13
+
+
+using UnityEngine;
+
+public class SimpleProceduralMesh : MonoBehaviour { }
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+public class SimpleProceduralMesh : MonoBehaviour { }
+public class SimpleProceduralMesh : MonoBehaviour {
+	
+	void OnEnable () {
+		var mesh = new Mesh {
+			name = "Procedural Mesh"
+		};
+	}
+}
+var mesh = new Mesh {
+			name = "Procedural Mesh"
+		};
+		
+		GetComponent<MeshFilter>().mesh = mesh;
+    var mesh = new Mesh {
+			name = "Procedural Mesh"
+		};
+
+		mesh.vertices = new Vector3[] {
+			Vector3.zero, Vector3.right, Vector3.up
+		};
+
+		GetComponent<MeshFilter>().mesh = mesh;
+    mesh.vertices = new Vector3[] {
+			Vector3.zero, Vector3.right, Vector3.up
+		};
+
+		mesh.triangles = new int[] {
+			0, 1, 2
+		};
+
+mesh.triangles = new int[] {
+			0, 2, 1
+		};
+    mesh.vertices = new Vector3[] {
+			Vector3.zero, Vector3.right, Vector3.up
+		};
+
+		mesh.normals = new Vector3[] {
+			Vector3.back, Vector3.back, Vector3.back
+		};
+    mesh.vertices = new Vector3[] {
+			Vector3.zero, Vector3.right, Vector3.up
+		};
+		
+		mesh.normals = new Vector3[] {
+			Vector3.back, Vector3.back, Vector3.back
+		};
+
+		mesh.uv = new Vector2[] {
+			Vector2.zero, Vector2.right, Vector2.up
+		};
+    mesh.normals = new Vector3[] {
+			Vector3.back, Vector3.back, Vector3.back
+		};
+
+		mesh.tangents = new Vector4[] {
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f)
+		};
+    mesh.vertices = new Vector3[] {
+			Vector3.zero, Vector3.right, Vector3.up,
+			new Vector3(1.1f, 0f), new Vector3(0f, 1.1f), new Vector3(1.1f, 1.1f)
+		};
+    mesh.normals = new Vector3[] {
+			Vector3.back, Vector3.back, Vector3.back,
+			Vector3.back, Vector3.back, Vector3.back,
+		};
+
+		mesh.tangents = new Vector4[] {
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f),
+			new Vector4(1f, 0f, 0f, -1f)
+		};
+    mesh.uv = new Vector2[] {
+			Vector2.zero, Vector2.right, Vector2.up,
+			Vector2.right, Vector2.up, Vector2.one
+		};
+    mesh.triangles = new int[] {
+			0, 2, 1, 3, 4, 5
+		};
+    Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(1);
+
+		var mesh = new Mesh {
+			name = "Procedural Mesh"
+		};
+    var mesh = new Mesh {
+			name = "Procedural Mesh"
+		};
+		Mesh.ApplyAndDisposeWritableMeshData(meshDataArray, mesh);
+		GetComponent<MeshFilter>().mesh = mesh;
+    Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(1);
+		Mesh.MeshData meshData = meshDataArray[0];
+    
+    using Unity.Collections;
+using UnityEngine;
+using UnityEngine.Rendering;
+int vertexAttributeCount = 4;
+		
+		Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(1);
+		Mesh.MeshData meshData = meshDataArray[0];
+		
+		var vertexAttributes = new NativeArray<VertexAttributeDescriptor>(
+			vertexAttributeCount, Allocator.Temp
+		);
+    int vertexAttributeCount = 4;
+		int vertexCount = 4;
+
+		Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(1);
+		Mesh.MeshData meshData = meshDataArray[0];
+
+		var vertexAttributes = new NativeArray<VertexAttributeDescriptor>(
+			vertexAttributeCount, Allocator.Temp
+		);
+		meshData.SetVertexBufferParams(vertexCount, vertexAttributes);
+		vertexAttributes.Dispose();
+    meshData.SetIndexBufferParams(triangleIndexCount, IndexFormat.UInt16);
